@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Joke from "./Components/Joke";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   const [jokes, setJokes] = useState(null);
@@ -15,14 +16,9 @@ function App() {
       );
   }, []);
 
-  const sort = () => {
-    setJokes((joke) => [...jokes].sort((a, b) => a.type - b.type));
-  };
-
   return (
     <div className="App">
       <div className="App-header ">
-        <button onClick={sort}>Have fun</button>
         {jokes?.map((item) => (
           <Joke key={item.id} joke={item} />
         ))}
